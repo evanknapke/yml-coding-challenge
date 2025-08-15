@@ -39,23 +39,13 @@ export const getServerSideProps: GetServerSideProps = withRole(
 export default function Budget() {
   const [data, setData] = useState<BudgetData[]>([]);
 
-  // TODO: @jacobhurst - Hey, I noticed an issue here that is causing performance issues.
-  // 
-  // This useEffect is missing its dependency array, so it's running on every render.
-  //
-  // When useEffect runs, it calls setData() which triggers a re-render, then useEffect
-  // runs again since there's no dependency array, creating an endless cycle that freezes the page.
-  // 
-  // Here are some docs that you might find helpful:
-  // - https://react.dev/reference/react/useEffect
-  // - https://react.dev/learn/removing-effect-dependencies
   useEffect(() => {
     const savedData = Cookies.get("budgetData");
     if (savedData) {
       console.log(`loaded data: ${savedData}`);
       setData(JSON.parse(savedData));
     }
-  });
+  }, []);
 
   const handleDelete = (index: number) => {
     const updatedData = data.filter((_, i) => i !== index);
