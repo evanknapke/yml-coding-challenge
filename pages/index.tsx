@@ -11,7 +11,7 @@ import type { GetServerSideProps } from "next";
 import { withRole } from "../src/withRoles";
 
 export const getServerSideProps: GetServerSideProps = withRole(
-  async (context) => {
+  async (_context) => {
     return {
       props: { }
     };

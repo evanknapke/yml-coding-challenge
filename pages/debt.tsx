@@ -27,7 +27,7 @@ export const getServerSideProps: GetServerSideProps = withRole(
       props: { }
     };
   },
-  [Role.USER]
+  [Role.USER, Role.ADMIN]
 );
 
 export default function Debt() {

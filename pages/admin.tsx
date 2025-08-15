@@ -1,24 +1,17 @@
 import { GetServerSideProps } from "next";
-import { withRole } from "../src/withRoles"; // Adjust the import path
+import { withRole } from "../src/withRoles";
 import Role from "../src/roles";
 
 export const getServerSideProps: GetServerSideProps = withRole(
-  async (context) => {
-    // Your page logic here
+  async (_context) => {
     return {
-      props: {
-        // your props
-      },
+      props: { }
     };
   },
-  [Role.USER] // TODO: This should be Admin only
-); // Replace with the roles that should have access
+  [ Role.ADMIN ]
+);
 
-const Admin = (
-  {
-    /* your props */
-  }
-) => {
+const Admin = ({ }) => {
   return (
     <div>
       <h1>Admin Page</h1>

@@ -25,17 +25,16 @@ interface BudgetData {
   clothing: string;
   createdAt: string;
 }
+
 export const getServerSideProps: GetServerSideProps = withRole(
-  async (context) => {
-    // Your page logic here
+  async (_context) => {
     return {
-      props: {
-        // your props
-      },
+      props: { }
     };
   },
-  [Role.USER]
+  [ Role.USER, Role.ADMIN ]
 );
+
 export default function Budget() {
   const [data, setData] = useState<BudgetData[]>([]);
 
