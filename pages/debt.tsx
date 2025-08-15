@@ -27,7 +27,7 @@ export const getServerSideProps: GetServerSideProps = withRole(
       props: { }
     };
   },
-  [Role.USER, Role.ADMIN]
+  [ Role.USER, Role.ADMIN ]
 );
 
 export default function Debt() {
@@ -97,7 +97,6 @@ export default function Debt() {
     },
   });
 
-    // TODO: Move navigation bar to a layout component
   return (
     <Container maxWidth="lg">
       <Box

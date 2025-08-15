@@ -41,7 +41,6 @@ export default function Budget() {
   useEffect(() => {
     const savedData = Cookies.get("budgetData");
     if (savedData) {
-      console.log(`loaded data: ${savedData}`);
       setData(JSON.parse(savedData));
     }
   }, []);
@@ -86,7 +85,6 @@ export default function Budget() {
     },
   });
 
-    // TODO: Move navigation bar to a layout component
   return (
     <Container maxWidth="lg">
       <Box

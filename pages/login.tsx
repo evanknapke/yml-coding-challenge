@@ -4,16 +4,13 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Cookies from "js-cookie";
 
-// TODO: Remove console.logs
 const LoginPage: React.FC = () => {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
   useEffect(() => {
-    console.log("Checking authentication...");
     // Check if the authenticated cookie is available
     const authStatus = !!Cookies.get("user");
-    console.log(Cookies.get("authenticated"));
     setIsAuthenticated(authStatus);
 
     // If authenticated, redirect to the home page

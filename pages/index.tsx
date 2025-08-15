@@ -19,9 +19,8 @@ export const getServerSideProps: GetServerSideProps = withRole(
   [ Role.USER, Role.ADMIN ]
 );
 
-// TODO: This needs renamed to  "Mortgage"
-export default function Debt() {
-  const [Principal, setPrincipal] = useState(""); // TODO: Rename `Principal` to `principal`
+export default function Mortgage() {
+  const [principal, setPrincipal] = useState("");
   const [interestRate, setInterestRate] = useState("");
   const [loanTerm, setLoanTerm] = useState("");
   const [monthlyPayment, setMonthlyPayment] = useState("");
@@ -29,7 +28,7 @@ export default function Debt() {
   const calculateMortgage = async () => {
     // TODO: POST would be more appropriate here.
     const response = await fetch(
-      `/api/calculate-mortgage?principal=${Principal}&interestRate=${interestRate}&loanTerm=${loanTerm}`
+      `/api/calculate-mortgage?principal=${principal}&interestRate=${interestRate}&loanTerm=${loanTerm}`
     );
 
     try {
@@ -40,21 +39,6 @@ export default function Debt() {
     }
   };
 
-  // TODO: This is an unused duplicate of calculateMortgage(), remove it.
-  const calculateAdjustableMortgage = async () => {
-    const response = await fetch(
-      `/api/calculate-mortgage?principal=${Principal}&interestRate=${interestRate}&loanTerm=${loanTerm}`
-    );
-
-    try {
-      const data = await response.json();
-      setMonthlyPayment(data.monthlyPayment);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // TODO: Move navigation bar to a layout component
   return (
     <Container maxWidth="lg">
       <Box
@@ -72,7 +56,7 @@ export default function Debt() {
         <TextField
           label="Principal"
           variant="outlined"
-          value={Principal}
+          value={principal}
           onChange={(e) => setPrincipal(e.target.value)}
           sx={{ mb: 2 }}
         />
