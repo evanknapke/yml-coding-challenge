@@ -6,10 +6,6 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Card, CardContent, Divider, Grid, Stack } from "@mui/material";
@@ -42,7 +38,6 @@ export const getServerSideProps: GetServerSideProps = withRole(
 );
 export default function Budget() {
   const [data, setData] = useState<BudgetData[]>([]);
-  const router = useRouter();
 
   // TODO: @jacobhurst - Hey, I noticed an issue here that is causing performance issues.
   // 
@@ -105,42 +100,6 @@ export default function Budget() {
     // TODO: Move navigation bar to a layout component
   return (
     <Container maxWidth="lg">
-      <AppBar position="static">
-        <Toolbar>
-          <Button
-            color="inherit"
-            component={Link}
-            href="/"
-            sx={{
-              textDecoration: router.pathname === "/" ? "underline" : "none",
-            }}
-          >
-            Home
-          </Button>
-          <Button
-            color="inherit"
-            component={Link}
-            href="/budget"
-            sx={{
-              textDecoration:
-                router.pathname === "/budget" ? "underline" : "none",
-            }}
-          >
-            Budget
-          </Button>
-          <Button
-            color="inherit"
-            component={Link}
-            href="/debt"
-            sx={{
-              textDecoration:
-                router.pathname === "/debt" ? "underline" : "none",
-            }}
-          >
-            Debt
-          </Button>
-        </Toolbar>
-      </AppBar>
       <Box
         sx={{
           my: 4,

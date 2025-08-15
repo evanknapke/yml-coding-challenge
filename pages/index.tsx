@@ -5,10 +5,6 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import { Stack } from "@mui/material";
 import Role from "../src/roles";
 import type { GetServerSideProps } from "next";
@@ -29,7 +25,6 @@ export default function Debt() {
   const [interestRate, setInterestRate] = useState("");
   const [loanTerm, setLoanTerm] = useState("");
   const [monthlyPayment, setMonthlyPayment] = useState("");
-  const router = useRouter();
 
   const calculateMortgage = async () => {
     // TODO: POST would be more appropriate here.
@@ -62,42 +57,6 @@ export default function Debt() {
   // TODO: Move navigation bar to a layout component
   return (
     <Container maxWidth="lg">
-      <AppBar position="static">
-        <Toolbar>
-          <Button
-            component={Link}
-            href="/"
-            sx={{
-              textDecoration: router.pathname === "/" ? "underline" : "none",
-              color: "inherit",
-            }}
-          >
-            Home
-          </Button>
-          <Button
-            component={Link}
-            href="/budget"
-            sx={{
-              textDecoration:
-                router.pathname === "/budget" ? "underline" : "none", // TODO: Formatting
-              color: "inherit",
-            }}
-          >
-            Budget
-          </Button>
-          <Button
-            component={Link}
-            href="/debt"
-            sx={{
-              textDecoration:
-                router.pathname === "/debt" ? "underline" : "none", // TODO: Formatting
-              color: "inherit",
-            }}
-          >
-            Debt
-          </Button>
-        </Toolbar>
-      </AppBar>
       <Box
         sx={{
           my: 4,

@@ -5,10 +5,6 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 import type { GetServerSideProps } from "next";
 import { withRole } from "../src/withRoles";
@@ -38,7 +34,6 @@ export default function Debt() {
   const [debtData, setDebtData] = useState<DebtData>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const router = useRouter();
 
   useEffect(() => {
     const savedData = Cookies.get("debtData");
@@ -105,40 +100,6 @@ export default function Debt() {
     // TODO: Move navigation bar to a layout component
   return (
     <Container maxWidth="lg">
-      <AppBar position="static">
-        <Toolbar>
-          <Button
-            component={Link}
-            href="/"
-            sx={{
-              textDecoration: router.pathname === "/" ? "underline" : "none",
-              color: "grey",
-            }}
-          >
-            Home
-          </Button>
-          <Button
-            component={Link}
-            href="/budget"
-            sx={{
-              textDecoration: router.pathname === "/budget" ? "underline" : "none",
-              color: "grey",
-            }}
-          >
-            Budget
-          </Button>
-          <Button
-            component={Link}
-            href="/debt"
-            sx={{
-              textDecoration: router.pathname === "/debt" ? "underline" : "none",
-              color: "grey",
-            }}
-          >
-            Debt
-          </Button>
-        </Toolbar>
-      </AppBar>
       <Box
         sx={{
           my: 4,
