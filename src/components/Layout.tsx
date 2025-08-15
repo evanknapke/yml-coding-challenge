@@ -8,49 +8,55 @@ import { Container } from "@mui/material";
 
 interface LayoutProps {
   children: React.ReactNode;
+  showNavbar?: boolean;
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children, showNavbar = true }: LayoutProps) {
   const router = useRouter();
+
+  const pagesWithoutNavBar = ['/login'];
+  const shouldShowNavbar = showNavbar && !pagesWithoutNavBar.includes(router.pathname);
 
   return (
     <>
-      <AppBar position="static">
-        <Toolbar>
-          <Button
-            component={Link}
-            href="/"
-            sx={{
-              textDecoration: router.pathname === "/" ? "underline" : "none",
-              color: "inherit",
-            }}
-          >
-            Home
-          </Button>
-          <Button
-            component={Link}
-            href="/budget"
-            sx={{
-              textDecoration:
-                router.pathname === "/budget" ? "underline" : "none",
-              color: "inherit",
-            }}
-          >
-            Budget
-          </Button>
-          <Button
-            component={Link}
-            href="/debt"
-            sx={{
-              textDecoration:
-                router.pathname === "/debt" ? "underline" : "none",
-              color: "inherit",
-            }}
-          >
-            Debt
-          </Button>
-        </Toolbar>
-      </AppBar>
+      {shouldShowNavbar && (
+        <AppBar position="static">
+          <Toolbar>
+            <Button
+              component={Link}
+              href="/"
+              sx={{
+                textDecoration: router.pathname === "/" ? "underline" : "none",
+                color: "inherit",
+              }}
+            >
+              Home
+            </Button>
+            <Button
+              component={Link}
+              href="/budget"
+              sx={{
+                textDecoration:
+                  router.pathname === "/budget" ? "underline" : "none",
+                color: "inherit",
+              }}
+            >
+              Budget
+            </Button>
+            <Button
+              component={Link}
+              href="/debt"
+              sx={{
+                textDecoration:
+                  router.pathname === "/debt" ? "underline" : "none",
+                color: "inherit",
+              }}
+            >
+              Debt
+            </Button>
+          </Toolbar>
+        </AppBar>
+      )}
       <Container maxWidth="lg">
         {children}
       </Container>
