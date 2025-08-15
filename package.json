@@ -1,0 +1,47 @@
+{
+  "name": "material-ui-nextjs-pages-router-ts",
+  "version": "5.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "vitest",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "post-update": "echo \"codesandbox preview only, need an update\" && pnpm update --latest"
+  },
+  "dependencies": {
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/server": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "@mui/material-nextjs": "latest",
+    "formik": "^2.4.6",
+    "js-cookie": "^3.0.5",
+    "next": "latest",
+    "nookies": "^2.5.2",
+    "react": "latest",
+    "react-dom": "latest",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.0.0",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/supertest": "^6.0.2",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "jest": "^29.7.0",
+    "jsdom": "^24.1.1",
+    "node-mocks-http": "^1.15.1",
+    "supertest": "^7.0.0",
+    "typescript": "latest",
+    "vitest": "^2.0.5"
+  }
+}
